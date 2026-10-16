@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ATKFUT Atacado</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Camisas de time no atacado para revendedores. Pedido mínimo de R$ 285, Grupo VIP, app e atendimento no WhatsApp.">
+<meta name="theme-color" content="#060908">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ATKFUT · Camisas de time no atacado">
+<meta property="og:description" content="Pedido mínimo de R$ 285. Compre pelo site, entre no Grupo VIP ou fale com a equipe.">
+<meta property="og:image" content="https://devagenciaontrack-sys.github.io/atkfut-links-bio/assets/og.jpg">
+<meta property="og:url" content="https://devagenciaontrack-sys.github.io/atkfut-links-bio/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060908'/%3E%3Cpath d='M11 6h10l6 4-3 5-2-1v12H10V14l-2 1-3-5z' fill='%2341e3c4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: coluna editorial alinhada à esquerda. A camisa com o mínimo nas costas é a capa;
+   etiquetas "costuradas" (borda tracejada) marcam os dados; vitrine em formato de story; lista limpa de links */
+:root{
+  --bg:#060908;
+  --bg-2:#0c1312;
+  --ink:#eef5f3;
+  --dim:#8ea39f;
+  --teal:#41e3c4;           /* turquesa ATKFUT */
+  --teal-2:#1fb79a;
+  --teal-deep:#0a3a33;
+  --teal-ink:#032620;
+  --wa:#25d366;
+  --hair:rgba(238,245,243,.10);
+  --f-display:'Archivo','Arial Narrow',Impact,sans-serif;
+  --f-body:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}
+body{font-family:var(--f-body);font-stretch:100%;background:var(--bg);color:var(--ink);min-height:100dvh;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;position:relative;isolation:isolate;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body.lock{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+
+/* ---------- atmosfera: luz turquesa que respira + grão de tecido ---------- */
+.aura{position:fixed;inset:-20%;z-index:-2;pointer-events:none;
+  background:radial-gradient(40% 35% at 75% 12%,rgba(65,227,196,.20),transparent 70%),
+             radial-gradient(35% 30% at 10% 55%,rgba(31,183,154,.10),transparent 70%);
+  animation:breathe 14s ease-in-out infinite alternate}
+@keyframes breathe{to{transform:translate3d(-4%,3%,0) scale(1.08)}}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.wrap{max-width:480px;margin:0 auto;padding-block:20px 56px;display:flex;flex-direction:column;gap:52px}
+
+/* ---------- topo ---------- */
+.top{display:flex;align-items:center;gap:10px}
+.logo{height:46px;width:auto;flex:none;display:block}
+.status{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font:600 10.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim);
+  padding:7px 10px;border:1px solid var(--hair);border-radius:999px;white-space:nowrap}
+.status i{width:7px;height:7px;border-radius:50%;background:var(--dim)}
+.status.on{color:var(--ink)} .status.on i{background:var(--wa);box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:ping 1.8s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 7px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--hair);display:grid;place-items:center;flex:none;transition:border-color .2s}
+.icon-btn:hover{border-color:var(--teal)}
+.icon-btn svg{width:16px;height:16px}
+
+/* ---------- capa: a camisa ---------- */
+.hero{display:flex;flex-direction:column;gap:22px}
+/* foto da equipe: moldura com borda turquesa, inclina com o dedo/mouse, brilho que passa e zoom lento */
+.stage{position:relative;max-width:100%;perspective:1000px;padding-bottom:6px}
+.stage::before{content:"";position:absolute;left:10%;right:10%;bottom:-6px;height:40px;border-radius:50%;background:radial-gradient(closest-side,rgba(65,227,196,.45),transparent);filter:blur(10px);animation:shadow 6s ease-in-out infinite}
+@keyframes shadow{50%{transform:scaleX(.9);opacity:.6}}
+.photo{position:relative;border-radius:20px;padding:2px;background:linear-gradient(150deg,var(--teal),rgba(65,227,196,.12) 40%,rgba(65,227,196,.05) 60%,var(--teal-2));
+  transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .6s var(--ease);animation:hang 6s ease-in-out infinite;
+  box-shadow:0 30px 60px -28px rgba(0,0,0,.9),0 0 40px -12px rgba(65,227,196,.35)}
+@keyframes hang{50%{translate:0 -6px}}
+.photo-in{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:942/1170;max-width:100%;background:var(--bg-2)}
+.photo-in img{width:100%;height:100%;object-fit:cover;display:block;animation:zoom 18s ease-in-out infinite alternate}
+@keyframes zoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+.photo-in::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent 60%,rgba(6,9,8,.45))}
+.photo-in::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.16) 50%,transparent 60%);background-size:250% 100%;animation:sheen 7s ease-in-out infinite}
+@keyframes sheen{0%,62%{background-position:160% 0}100%{background-position:-60% 0}}
+
+.headline{font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:clamp(52px,16vw,78px);line-height:.86;letter-spacing:-.005em;text-transform:uppercase;text-wrap:balance}
+.headline em{font-style:normal;color:var(--teal)}
+.lede{font-size:15.5px;line-height:1.6;color:var(--dim);max-width:40ch}
+.lede b{color:var(--ink);font-weight:600}
+
+
+/* ---------- CTA principal com letreiro de categorias dentro ---------- */
+.cta{position:relative;display:block;border-radius:18px;background:var(--teal);color:var(--teal-ink);overflow:hidden;padding:20px 20px 18px;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease);box-shadow:0 20px 50px -22px rgba(65,227,196,.9)}
+.cta:hover{transform:translateY(-3px);box-shadow:0 26px 60px -20px rgba(65,227,196,1)}
+.cta:active{transform:scale(.99)}
+.cta .belt{position:absolute;left:0;right:0;top:50%;translate:0 -50%;white-space:nowrap;pointer-events:none;opacity:.13}
+.cta .belt span{display:inline-block;font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:84px;line-height:1;text-transform:uppercase;padding-right:28px;animation:belt 28s linear infinite}
+@keyframes belt{to{transform:translateX(-100%)}}
+.cta-in{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.cta small{display:block;font:600 10.5px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;opacity:.75;margin-bottom:8px}
+.cta b{display:block;font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:40px;line-height:.9;text-transform:uppercase}
+.cta .go{flex:none;width:52px;height:52px;border-radius:50%;background:var(--teal-ink);color:var(--teal);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.cta:hover .go{transform:rotate(-45deg)}
+.cta .go svg{width:22px;height:22px}
+
+
+/* ---------- Grupo VIP: prévia da conversa ---------- */
+.vip{position:relative;display:block;border-radius:18px;background:linear-gradient(160deg,#0d1f19,#08110e);border:1px solid rgba(37,211,102,.25);overflow:hidden;transition:border-color .25s,transform .25s var(--ease)}
+.vip:hover{border-color:rgba(37,211,102,.6);transform:translateY(-2px)}
+.vip-h{display:flex;align-items:center;gap:11px;padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.2)}
+.vip-av{width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none;overflow:hidden}
+.vip-av img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+.vip-h div{flex:1;min-width:0}
+.vip-h b{display:block;font-size:15px;font-weight:700}
+.vip-h small{font-size:12px;color:#7fcf9f}
+.vip-badge{font:600 10px/1 var(--f-mono);letter-spacing:.08em;padding:6px 8px;border-radius:6px;background:var(--wa);color:#03210f;text-transform:uppercase}
+.chat{display:flex;flex-direction:column;gap:7px;padding:14px;min-height:150px}
+.msg{align-self:flex-start;max-width:86%;background:#15291f;border-radius:4px 12px 12px 12px;padding:8px 11px 7px;font-size:13.5px;line-height:1.4;
+  animation:pop .45s var(--ease) both;animation-delay:calc(.5s + var(--i) * .9s)}
+.msg small{display:block;text-align:right;font-size:10px;color:#6f9a80;margin-top:2px}
+.msg b{color:var(--teal);font-weight:600}
+@keyframes pop{from{opacity:.01;transform:translateY(8px) scale(.96)}}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:10px 12px;background:#15291f;border-radius:4px 12px 12px 12px;animation:pop .4s var(--ease) both;animation-delay:3.4s}
+.typing i{width:6px;height:6px;border-radius:50%;background:#7fcf9f;animation:dot 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{30%{transform:translateY(-4px);opacity:.5}}
+.vip-f{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;background:var(--wa);color:#03210f;font-weight:700;font-size:15px}
+.vip-f svg{width:18px;height:18px;transition:transform .3s var(--ease)}
+.vip:hover .vip-f svg{transform:translateX(4px)}
+
+/* ---------- lista de links ---------- */
+.list{display:flex;flex-direction:column;border-top:1px solid var(--hair)}
+.row{position:relative;display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:14px;padding:20px 4px;border-bottom:1px solid var(--hair);text-align:left;width:100%}
+.row::before{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--teal);transition:width .45s var(--ease)}
+.row:hover::before{width:100%}
+.row .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--bg-2);color:var(--teal);transition:background .25s,color .25s}
+.row:hover .ic{background:var(--teal);color:var(--teal-ink)}
+.row .ic svg{width:18px;height:18px}
+.row b{display:block;font-size:16.5px;font-weight:650;letter-spacing:-.005em}
+.row small{display:block;font-size:13px;color:var(--dim);margin-top:2px;line-height:1.35}
+.row .ar{width:18px;height:18px;color:var(--dim);transition:transform .3s var(--ease),color .25s}
+.row:hover .ar{transform:translate(3px,-3px);color:var(--teal)}
+.row .ar.in{transform:none}
+.row:hover .ar.in{transform:translateX(4px)}
+
+/* ---------- vitrine em formato story ---------- */
+.sec{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.sec h2{font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:30px;line-height:1;text-transform:uppercase}
+.sec span{font:600 10.5px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.reel{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:-34px;
+  margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px))) calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));scroll-padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.reel::-webkit-scrollbar{display:none}
+/* os banners do site já trazem nome, cantos e o "Confira": aqui só entram no trilho */
+.wide{display:block;border-radius:14px;overflow:hidden;margin-top:-34px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.wide:hover{transform:translateY(-3px);box-shadow:0 18px 40px -20px rgba(65,227,196,.7)}
+.wide img{display:block;width:100%;height:auto}
+.story{position:relative;flex:none;width:40%;max-width:190px;aspect-ratio:1600/2480;scroll-snap-align:start;
+  transition:transform .35s var(--ease),filter .35s var(--ease)}
+.story:hover{transform:translateY(-6px) rotate(-1deg);filter:drop-shadow(0 16px 22px rgba(65,227,196,.25))}
+/* os banners trazem uma margem branca em volta; o recorte tira a margem e mantém o canto arredondado */
+.story img{width:100%;height:100%;object-fit:contain;display:block;clip-path:inset(1.3% 0.9% 1.7% 0.9% round 9px)}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:-38px}
+.dots i{width:6px;height:6px;border-radius:6px;background:var(--hair);transition:width .3s var(--ease),background .3s}
+.dots i.on{width:18px;background:var(--teal)}
+
+/* ---------- redes ---------- */
+.socials{display:flex;gap:10px;margin-top:-34px}
+.soc{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 4px 12px;border-radius:14px;background:var(--bg-2);border:1px solid var(--hair);font:600 10px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim);transition:color .25s,border-color .25s,transform .25s var(--ease);min-width:0}
+.soc svg{width:22px;height:22px;color:var(--ink);transition:transform .3s var(--ease)}
+.soc:hover{color:var(--ink);border-color:var(--teal);transform:translateY(-3px)}
+.soc:hover svg{transform:scale(1.12)}
+
+/* ---------- app ---------- */
+.app{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;border-radius:18px;padding:18px;background:linear-gradient(135deg,var(--teal-deep),#071512 70%);border:1px solid rgba(65,227,196,.2);overflow:hidden;position:relative}
+.app h3{font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:30px;line-height:.92;text-transform:uppercase}
+.app p{font-size:13px;color:var(--dim);margin-top:6px;line-height:1.45}
+.stores{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}
+.store{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border-radius:10px;background:var(--ink);color:#060908;transition:transform .2s}
+.store:hover{transform:translateY(-2px)}
+.store svg{width:20px;height:20px}
+.store span{display:flex;flex-direction:column;line-height:1.1}
+.store small{font-size:9px;opacity:.7}.store b{font-size:13.5px;font-weight:700}
+/* celular com a tela real do app */
+.phone{width:64px;height:112px;border-radius:12px;padding:2px;position:relative;align-self:center;margin-right:4px;
+  background:linear-gradient(145deg,#cfdedb,#5b6b68 40%,#1c2423);transform:rotate(7deg);
+  box-shadow:0 18px 30px -10px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08);animation:phone 5s ease-in-out infinite}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:10px;display:block;background:#000}
+.phone::before{content:"";position:absolute;left:50%;top:5px;width:16px;height:4px;margin-left:-8px;border-radius:4px;background:#000;z-index:1}
+.phone::after{content:"";position:absolute;inset:2px;border-radius:10px;background:linear-gradient(115deg,rgba(255,255,255,.18),transparent 35%);pointer-events:none}
+@keyframes phone{50%{transform:rotate(4deg) translateY(-6px)}}
+
+/* ---------- rodapé ---------- */
+.foot{display:flex;flex-direction:column;gap:14px;padding-top:6px;border-top:1px solid var(--hair)}
+.contact{display:flex;flex-direction:column}
+.c-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--hair)}
+.c-row small{display:block;font:600 9.5px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.c-row span{font-size:14.5px;overflow-wrap:anywhere;min-width:0}
+.copy{font:600 10px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:7px 9px;border-radius:7px;border:1px solid var(--hair);color:var(--dim);transition:color .2s,border-color .2s}
+.copy:hover{color:var(--teal);border-color:var(--teal)}
+.legal{font:500 10.5px/1.6 var(--f-mono);letter-spacing:.04em;color:var(--dim);opacity:.75}
+
+/* pendências (somem quando o CONFIG for preenchido) */
+[data-pend]{position:relative}
+[data-pend]::after{content:"link pendente";position:absolute;top:6px;right:6px;z-index:5;font:600 8.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border-radius:4px;background:#ffcf4a;color:#2a1f00}
+.pend{color:#ffd56b}
+.pend-box{border:1px dashed #ffcf4a;border-radius:10px;padding:10px 12px;color:#ffe39a;font-size:13px;line-height:1.5}
+
+/* entrada */
+.rv{animation:rise .8s var(--ease) both;animation-delay:calc(var(--d,0) * 80ms)}
+@keyframes rise{from{opacity:.01;transform:translateY(18px)}}
+
+/* ---------- gavetas ---------- */
+.sheet{position:fixed;inset:0;z-index:50;display:flex;align-items:flex-end;justify-content:center}
+.sheet .bd{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);animation:fade .25s ease both}
+.sheet .pn{position:relative;width:100%;max-width:520px;max-height:90dvh;overflow-y:auto;background:var(--bg-2);border-top:1px solid var(--hair);
+  border-radius:22px 22px 0 0;padding:12px max(20px,env(safe-area-inset-right,0px)) calc(28px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));
+  animation:up .42s var(--ease) both;display:flex;flex-direction:column;gap:18px}
+@keyframes up{from{transform:translateY(100%)}}
+@keyframes fade{from{opacity:0}}
+.grab{width:40px;height:4px;border-radius:4px;background:rgba(255,255,255,.2);align-self:center}
+.pn-h{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.pn-h h2{font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:44px;line-height:.86;text-transform:uppercase;text-wrap:balance}
+.pn-h h2 em{font-style:normal;color:var(--teal)}
+.pn p{font-size:15px;line-height:1.65;color:#c4d3d0}
+.track{display:flex;flex-direction:column}
+.track li{list-style:none;display:grid;grid-template-columns:22px 1fr;gap:12px;padding-bottom:18px;position:relative}
+.track li::before{content:"";width:12px;height:12px;margin:4px 5px 0;border-radius:50%;border:2px solid var(--teal);background:var(--bg-2);z-index:1}
+.track li:last-child::before{background:var(--teal)}
+.track li:not(:last-child)::after{content:"";position:absolute;left:10.5px;top:16px;bottom:0;width:1px;background:repeating-linear-gradient(var(--teal-2) 0 4px,transparent 4px 8px)}
+.track b{display:block;font-size:15px;font-weight:650}
+.track b span{font:600 10px/1 var(--f-mono);color:var(--teal);letter-spacing:.06em;margin-left:6px;text-transform:uppercase}
+.track small{display:block;color:var(--dim);font-size:13px;line-height:1.5;margin-top:3px}
+.faq{display:flex;flex-direction:column;border-top:1px solid var(--hair)}
+.faq details{border-bottom:1px solid var(--hair)}
+.faq summary{cursor:pointer;list-style:none;padding:14px 2px;font-weight:600;font-size:14.5px;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:9px;height:9px;flex:none;margin-top:4px;border-right:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(45deg);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:rotate(-135deg)}
+.faq details p{padding:0 2px 14px;font-size:14px;color:var(--dim)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.nums div{padding:12px 6px;border-radius:10px;background:var(--bg);outline:1.5px dashed rgba(65,227,196,.35);outline-offset:-5px;text-align:center;min-width:0}
+.nums strong{display:block;font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:28px;white-space:nowrap;color:var(--teal);font-variant-numeric:tabular-nums;line-height:1}
+.nums small{font:600 9.5px/1.3 var(--f-mono);letter-spacing:.06em;color:var(--dim);text-transform:uppercase}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gal img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px;border-radius:14px;background:var(--teal);color:var(--teal-ink);font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.04em}
+.btn.wa{background:var(--wa);color:#03210f}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,160%);z-index:60;max-width:calc(100% - 32px);
+  padding:11px 16px;border-radius:12px;background:var(--ink);color:var(--bg);font-size:13px;font-weight:600;
+  opacity:0;visibility:hidden;transition:transform .35s var(--ease),opacity .25s,visibility 0s .35s}
+.toast.on{transform:translate(-50%,0);opacity:1;visibility:visible;transition:transform .35s var(--ease),opacity .25s}
+
+[hidden]{display:none!important}
+@media (max-width:390px){.logo{height:36px}.status{padding:6px 8px;font-size:9.5px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="aura" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<main class="wrap">
+
+  <header class="top rv">
+    <img class="logo" id="logo" src="assets/logo-atkfut.png" alt="ATKFUT Camisas de Futebol" width="693" height="248">
+    <span class="status" id="status"><i></i><span id="statusTx">Atacado</span></span>
+    <button class="icon-btn" id="shareBtn" type="button" aria-label="Compartilhar página"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg></button>
+  </header>
+
+  <section class="hero">
+    <div class="stage rv" style="--d:1" id="stage">
+      <div class="photo" id="jersey"><div class="photo-in"><img src="assets/equipe.jpg?v=2" alt="Equipe ATKFUT no estoque, com camisas na parede e pacotes prontos para envio" width="942" height="1170" fetchpriority="high"></div></div>
+    </div>
+
+    <h1 class="headline rv" style="--d:2">Camisas de time no <em>atacado</em></h1>
+    <p class="lede rv" style="--d:3">Brasileirão, times internacionais, seleções e retrô <b>com preço de atacado</b>. Monte o pedido no site, misture modelos e tamanhos, e conte com a gente do carrinho até a entrega.</p>
+  </section>
+
+  <a class="cta rv" style="--d:5" data-link="site">
+    <span class="belt" aria-hidden="true"><span id="belt1"></span><span id="belt2"></span></span>
+    <span class="cta-in">
+      <span><small>Loja oficial · pedidoatacado.com</small><b>Comprar no<br>atacado</b></span>
+      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </span>
+  </a>
+
+  <a class="vip rv" style="--d:6" data-link="grupo">
+    <span class="vip-h">
+      <span class="vip-av"><img src="assets/escudo-atkfut.png" alt="" width="546" height="517"></span>
+      <span><b>Grupo VIP ATKFUT</b><small>canal no WhatsApp · ofertas todo dia</small></span>
+      <span class="vip-badge">Grátis</span>
+    </span>
+    <span class="chat" aria-hidden="true">
+      <span class="msg" style="--i:0"><b>Lançamento</b> · camisas da temporada 26/27 já no site<small>09:12</small></span>
+      <span class="msg" style="--i:1"><b>Oferta relâmpago</b> só para quem está no grupo, até 18h<small>11:40</small></span>
+      <span class="msg" style="--i:2">Fotos e vídeos prontos para você divulgar no seu Instagram<small>14:05</small></span>
+    </span>
+    <span class="vip-f">Entrar no Grupo VIP<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </a>
+
+  <nav class="list rv" style="--d:7">
+    <a class="row" data-link="whatsapp">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
+      <span><b>Central de Vendas</b><small>Tamanhos, personalização e dúvidas antes de comprar</small></span>
+      <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="row" data-link="suporte">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 15a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2zM3 15a2 2 0 0 0 2 2h1v-6H5a2 2 0 0 0-2 2zM18 17v1a3 3 0 0 1-3 3h-3"/></svg></span>
+      <span><b>Suporte e Pós-venda</b><small>Ajuda com um pedido que você já fez</small></span>
+      <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="row" data-link="pedidos">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+      <span><b>Acompanhar meu pedido</b><small>Status e código de rastreio</small></span>
+      <svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <button class="row" type="button" data-open="revender">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M14 7h7v7"/></svg></span>
+      <span><b>Como revender</b><small>Do pedido à entrega, e as dúvidas mais comuns</small></span>
+      <svg class="ar in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+    <button class="row" type="button" data-open="historia">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span>
+      <span><b>Quem é a ATKFUT</b><small>Nossa história, equipe e estoque</small></span>
+      <svg class="ar in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </nav>
+
+  <div class="sec rv" style="--d:8"><h2>Vitrine</h2><span>arraste para o lado →</span></div>
+  <a class="wide rv" style="--d:8" id="wide"></a>
+  <div class="reel rv" style="--d:8" id="reel"></div>
+  <div class="dots" id="dots" aria-hidden="true"></div>
+
+  <div class="sec rv" style="--d:9"><h2>Siga a ATKFUT</h2></div>
+  <div class="socials rv" style="--d:9" id="socials">
+    <a class="soc" data-link="tiktok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3v3.2a5 5 0 0 0 4 2v3a8 8 0 0 1-4-1.1V15a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.1a3 3 0 1 0 2 2.8V3z"/></svg>TikTok</a>
+    <a class="soc" data-link="instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+    <a class="soc" data-link="whatsapp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.6-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>WhatsApp</a>
+  </div>
+
+  <section class="app rv" style="--d:10" id="appbox">
+    <div><h3>O catálogo<br>no seu bolso</h3><p>Baixe o app da ATKFUT e receba os lançamentos primeiro.</p></div>
+    <div class="phone"><img src="assets/app-tela.jpg" alt="Tela inicial do app ATKFUT" width="739" height="1600" loading="lazy"></div>
+    <div class="stores">
+      <a class="store" data-link="appstore"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.5 1.3-.1 1.7-.8 3.3-.8 1.5 0 1.9.8 3.3.8 1.4 0 2.2-1.2 3-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.4-.9-2.4-4zM13.9 4.9c.7-.8 1.2-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg><span><small>Baixar na</small><b>App Store</b></span></a>
+      <a class="store" data-link="googleplay"><svg viewBox="0 0 24 24"><path d="M3.6 2.2 13.5 12l-9.9 9.8c-.4-.2-.6-.6-.6-1.1V3.3c0-.5.2-.9.6-1.1z" fill="#2196f3"/><path d="m16.8 8.7-3.3 3.3-9.9-9.8c.3-.2.8-.2 1.2 0z" fill="#4caf50"/><path d="m16.8 15.3-12 6.5c-.4.2-.9.2-1.2 0l9.9-9.8z" fill="#f44336"/><path d="M20.4 10.7c.8.5.8 2.1 0 2.6l-3.6 2-3.3-3.3 3.3-3.3z" fill="#ffc107"/></svg><span><small>Disponível no</small><b>Google Play</b></span></a>
+    </div>
+  </section>
+
+  <footer class="foot rv" style="--d:11">
+    <div class="contact">
+      <div class="c-row"><span><small>Central de Vendas</small><span id="tel">—</span></span><button class="copy" type="button" data-copy="tel">Copiar</button></div>
+      <div class="c-row"><span><small>Suporte e Pós-venda</small><span id="tel2">—</span></span><button class="copy" type="button" data-copy="tel2">Copiar</button></div>
+      <div class="c-row"><span><small>E-mail</small><span id="mail">—</span></span><button class="copy" type="button" data-copy="mail">Copiar</button></div>
+      <div class="c-row"><span><small>Atendimento</small><span id="hora">—</span></span></div>
+    </div>
+    <p class="legal">ATKFUT © <span id="ano">2026</span> · pedidoatacado.com<span id="cnpj"></span></p>
+  </footer>
+</main>
+
+<!-- COMO REVENDER -->
+<div class="sheet" id="sh-revender" hidden role="dialog" aria-modal="true" aria-labelledby="h-rev">
+  <div class="bd" data-close></div>
+  <div class="pn">
+    <div class="grab"></div>
+    <div class="pn-h"><h2 id="h-rev">Do carrinho<br>à <em>revenda</em></h2><button class="icon-btn" type="button" data-close aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <ol class="track">
+      <li><span><b>Monte o pedido no site</b><small>Brasileirão, internacionais, seleções, retrô, jogador, feminina, kids, NBA, conjuntos e jaquetas.</small></span></li>
+      <li><span><b>Feche a partir de R$ 285</b><small>O mínimo é pelo valor do carrinho. Misture times, modelos e tamanhos à vontade.</small></span></li>
+      <li><span><b>Produção e postagem<span>até 7 dias úteis</span></b><small>O código de rastreio chega assim que o pacote sai.</small></span></li>
+      <li><span><b>Entrega<span>15 a 25 dias úteis</span></b><small>Contados a partir da postagem, para todo o Brasil.</small></span></li>
+      <li><span><b>Revenda</b><small>No Grupo VIP você recebe ofertas, lançamentos e fotos e vídeos prontos para divulgar.</small></span></li>
+    </ol>
+    <div class="faq">
+      <details><summary>Qual é o pedido mínimo?</summary><p>R$ 285,00 em produtos no carrinho. Não existe quantidade mínima por modelo.</p></details>
+      <details><summary>Dá para personalizar com nome e número?</summary><p>Dá. A personalização custa R$ 20,00 por peça e é escolhida na página do produto.</p></details>
+      <details><summary>Como acompanho o meu pedido?</summary><p>Pelo "Acompanhar meu pedido" nesta página ou na sua conta no site. O rastreio também chega por WhatsApp e e-mail.</p></details>
+      <details><summary>Tem cupom?</summary><p id="faq-cupom">Os cupons saem primeiro no Grupo VIP.</p></details>
+    </div>
+    <a class="btn" data-link="site">Ver o catálogo</a>
+  </div>
+</div>
+
+<!-- QUEM É A ATKFUT -->
+<div class="sheet" id="sh-historia" hidden role="dialog" aria-modal="true" aria-labelledby="h-his">
+  <div class="bd" data-close></div>
+  <div class="pn">
+    <div class="grab"></div>
+    <div class="pn-h"><h2 id="h-his">Quem é a<br><em>ATKFUT</em></h2><button class="icon-btn" type="button" data-close aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+    <div class="nums" id="nums"></div>
+    <div id="historia"></div>
+    <div class="gal" id="gal"></div>
+    <a class="btn wa" data-link="grupo">Entrar no Grupo VIP</a>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   >>> EDITE AQUI <<<   Link vazio ("") = aparece "link pendente".
+   Com tudo preenchido, mude esconderPendentes para true.
+   ===================================================================== */
+const CONFIG = {
+  site:       "https://pedidoatacado.com",
+  whatsapp:   "5531980261639",                 // Central de Vendas (55 + DDD + número)
+  msgWhats:   "Olá! Vim pelo link da bio e quero comprar camisas no atacado.",
+  suporte:    "5531984881663",                 // Suporte e Pós-venda
+  msgSuporte: "Olá! Vim pelo link da bio e preciso de ajuda com um pedido.",
+  instagram:  "https://www.instagram.com/fornecedoratkfut/",
+  grupo:      "https://whatsapp.com/channel/0029VaimlhWC1FuE22KaDM1E",   // canal do WhatsApp
+  pedidos:    "https://pedidoatacado.com/minha-conta/orders/",
+  tiktok:     "https://www.tiktok.com/@atkfut",
+  appstore:   "https://apps.apple.com/br/app/atkfut/id6754094628",
+  googleplay: "https://play.google.com/store/apps/details?id=com.foxappy.atkfut&hl=pt_BR",
+  email:      "atendimento@pedidoatacado.com",
+  cnpj:       "",
+
+  /* horário: dia da semana (0 = domingo) → [abre, fecha]. Liga o "Atendendo agora". */
+  horario: { 1: ["09:30","18:30"], 2: ["09:30","18:30"], 3: ["09:30","18:30"], 4: ["09:30","18:30"], 5: ["09:30","18:30"] },
+  horarioTexto: "Segunda a sexta · 9h30 às 18h30",
+
+  /* vitrine: os mesmos banners da home do site, na mesma ordem e com os mesmos links */
+  banner: { src: "assets/brasileirao.webp", alt: "Brasileirão", link: "https://pedidoatacado.com/categoria-produto/campeonato-brasileiro-serie-a/" },
+  vitrine: [
+    { src: "assets/copa-do-mundo.png", alt: "Copa do Mundo", link: "https://pedidoatacado.com/categoria-produto/copa-do-mundo/" },
+    { src: "assets/retro.webp",        alt: "Retrô",         link: "https://pedidoatacado.com/?s=retro&post_type=product" },
+    { src: "assets/jogador.webp",      alt: "Jogador",       link: "https://pedidoatacado.com/?s=jogador&post_type=product" },
+    { src: "assets/kit-treino.webp",   alt: "Kit Treino",    link: "https://pedidoatacado.com/?s=Kit+Treino&post_type=product" },
+    { src: "assets/kit-regata.webp",   alt: "Kit Regata",    link: "https://pedidoatacado.com/?s=Kit+Regata&post_type=product" },
+    { src: "assets/conjuntos.webp",    alt: "Conjuntos",     link: "https://pedidoatacado.com/?s=conjunto&post_type=product" },
+    { src: "assets/infantil.png",      alt: "Infantil",      link: "https://pedidoatacado.com/?s=kids&post_type=product" },
+    { src: "assets/femininas.webp",    alt: "Femininas",     link: "https://pedidoatacado.com/?s=feminina&post_type=product" },
+    { src: "assets/basquete.webp",     alt: "Basquete",      link: "https://pedidoatacado.com/categoria-produto/nba/" },
+    { src: "assets/meias.webp",        alt: "Meias",         link: "https://pedidoatacado.com/?s=meia&post_type=product" }
+  ],
+
+  categorias: ["Brasileirão","Times internacionais","Seleções","Retrô","Jogador","Feminina","Kids","NBA","Conjuntos","Kits","Jaquetas","Acessórios","Meias"],
+  cupom: "",                                   // ex.: "10OFF"
+
+  numeros: [
+    { n: 80,  s: "+", u: " mil", t: "pedidos" },
+    { n: 50,  s: "+", u: " mil", t: "clientes" },
+    { n: 500, s: "+", u: " mil", t: "produtos" }
+  ],
+  historia: [
+    "A ATKFUT nasceu em 2019 com um propósito claro: levar a oportunidade de renda extra para as pessoas através da venda de camisas.",
+    "Desde então, criamos todo um mercado especializado em camisas com alto padrão de qualidade, conquistando a confiança de mais de 50 mil clientes e permitindo que muitas pessoas mudassem de vida.",
+    "Aqui, cada pedido e cada camisa contam uma história. Nosso lema é confiança e qualidade em primeiro lugar: buscamos sempre trazer o melhor para o cliente, com toda a segurança, para que ele possa focar no que importa: VENDER!"
+  ],
+  galeria:  [],                                // fotos da equipe/estoque
+
+  esconderPendentes: true
+};
+const UTM = "utm_source=bio&utm_medium=social&utm_campaign=linkbio";
+
+/* ---------- daqui pra baixo não precisa mexer ---------- */
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const toast = m => { const t = $("#toast"); t.textContent = m; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("on"), 2600); };
+const reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+(function(){
+  const C = CONFIG;
+  const utm = u => u && u.includes("pedidoatacado.com") ? u + (u.includes("?") ? "&" : "?") + UTM : u;
+  const wa = (n,m) => n ? "https://wa.me/" + String(n).replace(/\D/g,"") + (m ? "?text=" + encodeURIComponent(m) : "") : "";
+  const busca = c => utm(C.site.replace(/\/$/,"") + "/?s=" + encodeURIComponent(c) + "&post_type=product");
+
+  /* vitrine */
+  const ext = (el, v) => { el.href = utm(v.link); el.target = "_blank"; el.rel = "noopener"; };
+  const wide = $("#wide");
+  if (C.banner) { wide.innerHTML = '<img src="' + esc(C.banner.src) + '" alt="' + esc(C.banner.alt) + '" width="2160" height="600" loading="lazy">'; ext(wide, C.banner); }
+  else wide.hidden = true;
+  const reel = $("#reel");
+  reel.innerHTML = C.vitrine.map(v => '<a class="story" href="' + esc(utm(v.link)) + '" target="_blank" rel="noopener"><img src="' + esc(v.src) + '" alt="' + esc(v.alt) + '" width="1600" height="2480" loading="lazy"></a>').join("");
+  /* bolinhas que acompanham o arraste */
+  const dots = $("#dots");
+  dots.innerHTML = C.vitrine.map(() => "<i></i>").join("");
+  const marca = () => {
+    const cards = reel.children; if (!cards.length) return;
+    const passo = cards[0].getBoundingClientRect().width + 10;
+    const n = Math.min(cards.length - 1, Math.round(reel.scrollLeft / passo));
+    [...dots.children].forEach((d,k) => d.classList.toggle("on", k === n));
+  };
+  reel.addEventListener("scroll", marca, { passive: true }); marca();
+  /* a vitrine anda sozinha até a pessoa tocar nela */
+  if (!reduz) {
+    let parado = false; const para = () => parado = true;
+    ["pointerdown","wheel","touchstart"].forEach(ev => reel.addEventListener(ev, para, { passive: true }));
+    setInterval(() => {
+      if (parado || document.hidden) return;
+      const passo = reel.children[0].getBoundingClientRect().width + 10;
+      const fim = reel.scrollLeft + reel.clientWidth >= reel.scrollWidth - 4;
+      reel.scrollTo({ left: fim ? 0 : reel.scrollLeft + passo, behavior: "smooth" });
+    }, 3200);
+  }
+
+  const map = { site: utm(C.site), whatsapp: wa(C.whatsapp, C.msgWhats), suporte: wa(C.suporte, C.msgSuporte), grupo: C.grupo, pedidos: utm(C.pedidos),
+    instagram: C.instagram, tiktok: C.tiktok, appstore: C.appstore, googleplay: C.googleplay };
+  $$("[data-link]").forEach(el => {
+    const url = map[el.dataset.link];
+    if (url) { el.href = url; el.target = "_blank"; el.rel = "noopener"; }
+    else if (C.esconderPendentes) el.hidden = true;
+    else { el.href = "#"; el.setAttribute("data-pend", ""); el.addEventListener("click", e => { e.preventDefault(); toast("Este link ainda não foi configurado."); }); }
+  });
+  if (C.esconderPendentes && !C.appstore && !C.googleplay) $("#appbox").hidden = true;
+
+  /* categorias: no letreiro do botão e como atalhos */
+  const belt = C.categorias.join(" · ") + " · ";
+  $("#belt1").textContent = belt; $("#belt2").textContent = belt;
+  if (C.cupom) $("#faq-cupom").textContent = "Use o cupom " + C.cupom + " no carrinho. Os próximos saem primeiro no Grupo VIP.";
+
+  /* contato */
+  const fmt = n => String(n).replace(/\D/g,"").replace(/^55(\d\d)(\d{4,5})(\d{4})$/, "($1) $2-$3");
+  const fone = fmt(C.whatsapp), fone2 = fmt(C.suporte);
+  $("#tel").textContent = fone || "—";
+  $("#tel2").textContent = fone2 || "—";
+  $("#mail").textContent = C.email || "—";
+  $("#hora").innerHTML = C.horarioTexto ? esc(C.horarioTexto) : '<span class="pend">horário pendente</span>';
+  $$("[data-copy]").forEach(b => b.addEventListener("click", async () => {
+    const v = { tel: fone, tel2: fone2, mail: C.email }[b.dataset.copy];
+    try { await navigator.clipboard.writeText(v); toast("Copiado: " + v); } catch (e) { toast(v); }
+  }));
+  if (C.cnpj) $("#cnpj").textContent = " · " + C.cnpj;
+  $("#ano").textContent = new Date().getFullYear();
+
+  /* "Atendendo agora" pelo horário de Brasília */
+  if (C.horario) {
+    const p = new Intl.DateTimeFormat("en-GB", { timeZone: "America/Sao_Paulo", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false }).formatToParts(new Date());
+    const g = t => p.find(x => x.type === t).value;
+    const dia = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(g("weekday")), agora = g("hour") + ":" + g("minute");
+    const h = C.horario[dia], on = h && agora >= h[0] && agora < h[1];
+    $("#status").classList.toggle("on", !!on);
+    $("#statusTx").textContent = on ? "Atendendo agora" : "Fora do horário";
+  }
+
+  /* história */
+  $("#historia").innerHTML = C.historia.length
+    ? C.historia.map(p => "<p>" + esc(p) + "</p>").join("")
+    : '<p class="pend-box">Texto pendente: como a ATKFUT começou, desde quando vende no atacado, quem é a equipe e o que vocês fazem diferente.</p>';
+  if (C.numeros.length) $("#nums").innerHTML = C.numeros.map(x => '<div><strong data-count="' + x.n + '" data-s="' + esc(x.s || "") + '" data-u="' + esc(x.u || "") + '">0</strong><small>' + esc(x.t) + "</small></div>").join("");
+  else $("#nums").hidden = true;
+  $("#gal").innerHTML = C.galeria.map(s => '<img src="' + esc(s) + '" alt="" loading="lazy">').join("");
+})();
+
+/* ---------- a camisa acompanha o dedo / mouse ---------- */
+(function(){
+  if (reduz) return;
+  const j = $("#jersey"), st = $("#stage");
+  addEventListener("pointermove", e => {
+    const r = st.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    j.style.setProperty("--ry", Math.max(-1, Math.min(1, x)) * 8 + "deg");
+    j.style.setProperty("--rx", Math.max(-1, Math.min(1, y)) * -6 + "deg");
+  }, { passive: true });
+  /* no celular, gira sozinha de leve */
+  if (matchMedia("(hover: none)").matches) {
+    let t0 = performance.now();
+    (function f(t){ const k = (t - t0) / 1000; j.style.setProperty("--ry", Math.sin(k * .6) * 5 + "deg"); requestAnimationFrame(f); })(t0);
+  }
+})();
+
+/* ---------- gavetas: abrem por botão ou por #revender / #historia no link ---------- */
+(function(){
+  let aberta = null, origem = null;
+  function abrir(id, push){
+    const sh = document.getElementById("sh-" + id); if (!sh) return;
+    origem = document.activeElement; aberta = sh; sh.hidden = false; document.body.classList.add("lock");
+    sh.querySelector("[data-close].icon-btn").focus({ preventScroll: true });
+    if (push) try { history.pushState(null, "", "#" + id); } catch (e) {}
+    sh.querySelectorAll("[data-count]").forEach(el => {
+      if (el.dataset.ok) return; el.dataset.ok = 1;
+      const alvo = +el.dataset.count, s = el.dataset.s, ano = alvo > 1900 && alvo < 2100, t0 = performance.now();
+      (function f(t){ const k = Math.min(1, (t - t0) / 1200), n = Math.round(alvo * (1 - Math.pow(1 - k, 3)));
+        el.textContent = s + (ano ? n : n.toLocaleString("pt-BR")) + el.dataset.u; if (k < 1) requestAnimationFrame(f); })(t0);
+    });
+  }
+  function fechar(back){
+    if (!aberta) return; aberta.hidden = true; aberta = null; document.body.classList.remove("lock");
+    origem && origem.focus && origem.focus({ preventScroll: true });
+    if (back && location.hash) try { history.pushState(null, "", location.pathname + location.search); } catch (e) {}
+  }
+  $$("[data-open]").forEach(b => b.addEventListener("click", () => abrir(b.dataset.open, true)));
+  $$("[data-close]").forEach(b => b.addEventListener("click", () => fechar(true)));
+  addEventListener("keydown", e => { if (e.key === "Escape") fechar(true); });
+  addEventListener("popstate", () => { const h = location.hash.slice(1); h ? abrir(h, false) : fechar(false); });
+  const h0 = location.hash.slice(1); if (h0) abrir(h0, false);
+})();
+
+/* ---------- compartilhar ---------- */
+$("#shareBtn").addEventListener("click", async () => {
+  const d = { title: "ATKFUT · Atacado", text: "Camisas de time no atacado", url: location.href.split("#")[0] };
+  try { if (navigator.share) { await navigator.share(d); return; } } catch (e) { if (e.name === "AbortError") return; }
+  try { await navigator.clipboard.writeText(d.url); toast("Link copiado"); } catch (e) { toast(d.url); }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+PÁGINA DE LINKS DA BIO — ATKFUT
+================================
+
+O que é
+-------
+Uma página estática (HTML + imagens) para usar como "link na bio" do Instagram
+e do TikTok da ATKFUT. Não tem banco de dados, PHP, Node nem build: é só
+copiar a pasta para o servidor.
+
+Conteúdo da pasta
+-----------------
+  index.html        a página (CSS e JavaScript já estão dentro dela)
+  assets/           imagens usadas pela página (16 arquivos, ~2,3 MB no total)
+  LEIA-ME.txt       este arquivo
+
+Como hospedar
+-------------
+1. Copie index.html e a pasta assets/ juntos para a pasta pública do servidor,
+   mantendo a estrutura. Exemplos de endereço:
+     - https://links.pedidoatacado.com/      (subdomínio, recomendado)
+     - https://pedidoatacado.com/links/      (subpasta do site)
+2. Abra o endereço no celular e confira se a foto da equipe e os banners
+   carregam.
+
+As fontes vêm do Google Fonts (fonts.googleapis.com / fonts.gstatic.com).
+Se o servidor tiver Content-Security-Policy, libere esses dois domínios.
+
+IMPORTANTE: desafio "Verifying your browser" da CDN
+---------------------------------------------------
+Hoje o pedidoatacado.com passa pela CDN noc.org, que mostra a tela
+"Verifying your browser. Please wait a few seconds..." para quem chega sem
+cookie. Quem toca no link da bio abre a página pelo navegador interno do
+Instagram/TikTok, quase sempre sem cookie, e cairia nessa tela antes de ver
+a página.
+
+Por isso o ideal é publicar num endereço que NÃO passe por esse desafio
+(um subdomínio fora da CDN, ou uma regra na CDN que libere o caminho da
+página). Depois de publicar, teste abrindo o link de dentro do app do
+Instagram, não só pelo Chrome.
+
+Prévia ao compartilhar no WhatsApp
+----------------------------------
+No começo do index.html, troque o caminho relativo da imagem de prévia pelo
+endereço completo onde a página ficou, por exemplo:
+
+  <meta property="og:image" content="https://links.pedidoatacado.com/assets/og.jpg">
+  <meta property="og:url"   content="https://links.pedidoatacado.com/">
+
+O WhatsApp e o Facebook só mostram a imagem quando o endereço é completo.
+
+Como trocar links, telefones e textos
+-------------------------------------
+Tudo fica num bloco só, perto do fim do index.html, marcado com
+">>> EDITE AQUI <<<" (const CONFIG = { ... }). Não é preciso mexer no resto.
+
+  site, pedidos           endereços da loja
+  whatsapp, suporte       números, só dígitos com 55 + DDD
+  grupo                   canal VIP do WhatsApp
+  instagram, tiktok       perfis
+  appstore, googleplay    links do app
+  horario                 dias e horas do selo "Atendendo agora" (horário de Brasília)
+  banner, vitrine         banners da vitrine e para onde cada um leva
+  numeros, historia       contadores e texto de "Quem é a ATKFUT"
+
+Um link deixado vazio ("") faz o botão sumir da página.
+
+Os links que vão para o pedidoatacado.com recebem automaticamente
+utm_source=bio, para o Google Analytics separar as visitas que vieram da bio.
+
+Atalhos
+-------
+  .../#revender   abre direto a página "Como revender"
+  .../#historia   abre direto "Quem é a ATKFUT"
