@@ -14,6 +14,27 @@
 <meta property="og:url" content="https://devagenciaontrack-sys.github.io/atkfut-links-bio/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23060908'/%3E%3Cpath d='M11 6h10l6 4-3 5-2-1v12H10V14l-2 1-3-5z' fill='%2341e3c4'/%3E%3C/svg%3E">
+<!-- Google tag (gtag.js) · GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6C0TMEK5V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments) }
+  gtag('js', new Date());
+  gtag('config', 'G-H6C0TMEK5V');
+</script>
+<!-- Meta Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1444684077760876');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+  src="https://www.facebook.com/tr?id=1444684077760876&ev=PageView&noscript=1"></noscript>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -599,6 +620,28 @@ $("#shareBtn").addEventListener("click", async () => {
   try { if (navigator.share) { await navigator.share(d); return; } } catch (e) { if (e.name === "AbortError") return; }
   try { await navigator.clipboard.writeText(d.url); toast("Link copiado"); } catch (e) { toast(d.url); }
 });
+</script>
+
+<script>
+  // Cada link do site já carrega um data-link. Aqui ele vira o nome do evento,
+  // para saber no GA4 e no Pixel qual botão a pessoa usou.
+  (function () {
+    var contato = { whatsapp: 1, suporte: 1, grupo: 1 };
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[data-link]');
+      if (!a) return;
+      var id = a.dataset.link;
+      var destino = a.href || '';
+      if (window.gtag) {
+        gtag('event', 'clique_link', { link_id: id, link_url: destino });
+        if (contato[id]) gtag('event', 'generate_lead', { method: id });
+      }
+      if (window.fbq) {
+        fbq('trackCustom', 'CliqueLink', { link_id: id });
+        if (contato[id]) fbq('track', 'Contact', { link_id: id });
+      }
+    }, true);
+  })();
 </script>
 </body>
 </html>
